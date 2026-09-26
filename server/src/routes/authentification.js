@@ -1,7 +1,5 @@
 const express = require('express');
 const router = express.Router();
+const 
 
-router.post('/login',(req,res)=>
-{
-    
-})
+router.post('/login',loginUser);
