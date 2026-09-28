@@ -1,10 +1,13 @@
 const express = require('express');
-const cores = require('cors');
-const 
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
+const authRoutes = require('./routes/authentification');
 
-const app=express();
+
+const app = express();
 app.use(express.json());
-app.use(cores());   //enable CORS for all routes
-
+app.use(cors());
+app.use(cookieParser());
+app.use('/auth', authRoutes);
 
 module.exports = app;
