@@ -12,7 +12,7 @@ router.post('/login', login);
 router.post('/register', register);
 router.post('/refresh-token', refreshToken);
 router.post('/logout', logoutUser);
-router.use(authMiddleware);
+//router.use(authMiddleware);
 
 
 module.exports=router;

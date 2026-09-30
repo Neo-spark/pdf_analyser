@@ -1,7 +1,12 @@
 const multer = require('multer');
-//const path = require('path');
+const path = require('path');
 
-const storage = multer.memoryStorage();
+const storage = multer.diskStorage({
+	destination:(req,file,cb)=>
+	{
+		cb(null, path.join(__dirname, '../../uploads'));
+	}
+});
 
 const fileFilter = (req, file, cb) => {
 	const isPdf =
@@ -15,7 +20,8 @@ const fileFilter = (req, file, cb) => {
 	cb(new Error('Only PDF files are allowed'));
 };
 
-module.exports = multer({
+const upload = multer({
 	storage,
 	fileFilter,
 });
+module.exports = upload.single('file');
