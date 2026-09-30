@@ -7,6 +7,10 @@ const { uploadOnCloudinary } = require('../utils/cloudinary');
 const uploadDocument=async(req,res)=>
 {
     try{
+        if (!req.user?.id) {
+            return res.status(401).json({ error: 'Authenticated user is required' });
+        }
+
         if(!req.file){
             return res.status(400).json({ error: 'No file uploaded' });
         }
@@ -14,7 +18,7 @@ const uploadDocument=async(req,res)=>
         console.log(req.file);
         const { originalname, mimetype, size, path: filepath } = req.file;
         const newDocument = new Document({
-            userId: req.user._id,
+            userId: req.user.id,
             filename: originalname,
             storageKey: filepath,
             mimetype,

@@ -9,6 +9,6 @@ app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
 app.use('/auth', authRoutes);
-app.use('/api/documents', documentRoutes);
+app.use('/documents', documentRoutes);
 
 module.exports = app;

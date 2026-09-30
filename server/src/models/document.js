@@ -48,6 +48,6 @@ const documentSchema=new mongoose.Schema({
 
 });
 
-document=mongoose.model('Document',documentSchema);
+const document=mongoose.model('Document',documentSchema);
 
 module.exports=document;
