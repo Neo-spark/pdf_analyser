@@ -1,6 +1,11 @@
 require ("dotenv").config();
 
-const requiredEnv = ['MONGO_URI', 'ACCESS_TOKEN_SECRET', 'REFRESH_TOKEN_SECRET'];
+const requiredEnv = [
+    'MONGO_URI',
+    'ACCESS_TOKEN_SECRET',
+    'REFRESH_TOKEN_SECRET',
+    'DROPBOX_ACCESS_TOKEN',
+];
 const missingEnv = requiredEnv.filter((name) => !process.env[name]);
 if (missingEnv.length > 0)
 {

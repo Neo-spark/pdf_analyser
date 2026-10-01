@@ -14,11 +14,16 @@ const uploadOnCloudinary = async (filepath)=>
         if(!filepath) return null;
         const result=await cloudinary.uploader.upload(filepath,
             {
-                filetype:"auto"
+                resource_type:"auto"
             }
-        )
-        console.log("FILE UPLOADE SUCCESSFULLY ON CLOUDINARY",result.url);
-        return result.url;
+        );
+        console.log("FILE UPLOADED SUCCESSFULLY ON CLOUDINARY",result.secure_url);
+        try {
+            fs.unlinkSync(filepath);
+        } catch (cleanupError) {
+            console.error("Unable to remove temporary upload", cleanupError);
+        }
+        return result.secure_url;
 
     }
     catch(err)

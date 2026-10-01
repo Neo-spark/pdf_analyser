@@ -18,6 +18,11 @@ const documentSchema=new mongoose.Schema({
     required:true,
     trim:true
    },
+   cloudinaryUrl:
+   {
+    type:String,
+    trim:true
+   },
    mimetype:
    {
     type:String,
