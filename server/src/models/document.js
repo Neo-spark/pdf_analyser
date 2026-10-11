@@ -18,6 +18,11 @@ const documentSchema=new mongoose.Schema({
     required:true,
     trim:true
    },
+   cloudinaryUrl:
+   {
+    type:String,
+    trim:true
+   },
    mimetype:
    {
     type:String,
@@ -48,6 +53,6 @@ const documentSchema=new mongoose.Schema({
 
 });
 
-document=mongoose.model('Document',documentSchema);
+const document=mongoose.model('Document',documentSchema);
 
 module.exports=document;

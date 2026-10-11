@@ -122,7 +122,7 @@ const login = async (req, res) =>
         // Store refresh token in HttpOnly cookie
         res.cookie("refreshToken", refreshToken, {
             httpOnly: true,
-            secure: true,
+            secure: false, // Set to true in production with HTTPS
             sameSite: "lax",
             path: "/auth"
         });

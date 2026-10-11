@@ -1,5 +1,17 @@
 require ("dotenv").config();
 
+const requiredEnv = [
+    'MONGO_URI',
+    'ACCESS_TOKEN_SECRET',
+    'REFRESH_TOKEN_SECRET',
+    'DROPBOX_ACCESS_TOKEN',
+];
+const missingEnv = requiredEnv.filter((name) => !process.env[name]);
+if (missingEnv.length > 0)
+{
+    throw new Error(`Missing required environment variables: ${missingEnv.join(', ')}`);
+}
+
 const connectDB=require('./config/db');
 
 const app=require('./app');
@@ -9,5 +21,5 @@ connectDB();   //connect to the database
 
 app.listen(PORT,()=>
 {
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`Backend connected at http://localhost:${PORT}`);
 });

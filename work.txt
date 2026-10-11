@@ -3,3 +3,10 @@ login refreshaccesstoek
 pendong logout
 
 auth middleware added
+multer is added 
+all auth testing is done login logout rrefreshtoken and register...al verifies
+
+new owrk is pushing into new branch file-upload
+fiel upload in server part is done(local)
+for now we are skipping the cloudinary for production we will use this
+uploaded file automatically converted to pdf file
